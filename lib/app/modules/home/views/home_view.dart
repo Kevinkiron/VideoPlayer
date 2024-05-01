@@ -15,7 +15,7 @@ class HomeView extends GetView<HomeController> {
         return Scaffold(
           appBar: AppBar(
             elevation: 4,
-            leading: Icon(Icons.video_collection_outlined),
+            leading: const Icon(Icons.video_collection_outlined),
             title: Style().reg(
               text: Constants.home,
             ),
