@@ -12,33 +12,41 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return YoutubePlayerBuilder(
       builder: (context, player) {
-        return Scaffold(
-          appBar: AppBar(
-            title: Style().reg(
-              text: Constants.home,
+        return SafeArea(
+          child: Scaffold(
+            appBar: AppBar(
+              title: Style().reg(
+                text: Constants.home,
+              ),
+              centerTitle: true,
             ),
-            centerTitle: true,
+            body: Center(
+                child: ListView(
+              padding: const EdgeInsets.all(10),
+              children: [
+                const Gap(10),
+                Style().reg(
+                  text: Constants.animeEdition,
+                  size: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+                const Gap(10),
+                player,
+                const Gap(20),
+                Style().reg(
+                  text: 'Description',
+                  size: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+                const Gap(10),
+                Style().reg(
+                  text: Constants.descriptionDetail,
+                  size: 15,
+                  fontWeight: FontWeight.w200,
+                ),
+              ],
+            )),
           ),
-          body: Center(
-              child: ListView(
-            padding: const EdgeInsets.all(10),
-            children: [
-              const Gap(10),
-              Style().reg(
-                text: Constants.animeEdition,
-                size: 20,
-                fontWeight: FontWeight.w600,
-              ),
-              const Gap(10),
-              player,
-              const Gap(20),
-              Style().reg(
-                text: 'Description',
-                size: 15,
-                fontWeight: FontWeight.w600,
-              ),
-            ],
-          )),
         );
       },
       player: YoutubePlayer(
