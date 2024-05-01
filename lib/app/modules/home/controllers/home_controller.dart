@@ -1,23 +1,22 @@
 import 'package:get/get.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  final String videoUrl = "https://www.youtube.com/watch?v=CMF3qeu7fHY";
 
-  final count = 0.obs;
+  late YoutubePlayerController videoController;
   @override
   void onInit() {
+    videoPlayer();
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  videoPlayer() {
+    final videoId = YoutubePlayer.convertUrlToId(videoUrl);
+    videoController = YoutubePlayerController(
+        initialVideoId: videoId!,
+        flags: const YoutubePlayerFlags(
+          autoPlay: false,
+        ));
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
