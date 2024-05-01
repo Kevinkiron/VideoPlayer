@@ -19,9 +19,18 @@ dev_dependencies:
   flutter_lints: 3.0.2
   flutter_test: 
     sdk: flutter
+  flutter_launcher_icons:  
+
+
+flutter_icons:
+  image_path: "assets/icons/icon.png" 
+  android: true
+  ios: true    
+
 
 flutter: 
   uses-material-design: true
+
 
   assets:
     - assets/images/
